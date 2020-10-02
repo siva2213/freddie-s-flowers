@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import "./GroupedDropdown.css";
-import DummyData from "../../shared/data.json";
+import { __catalog_path } from "../../constants/routePaths";
+import Actions from "../../actions";
 
 class GroupedDropdown extends Component {
   constructor(props) {
@@ -13,8 +16,13 @@ class GroupedDropdown extends Component {
     };
   }
 
-  onHandleLocation = (selectedItem) => {
-    let setBranchOptions = DummyData.data.locations.reduce((acc, cur) => {
+  onHandleLocation = (e, selectedItem) => {
+    e = e || window.event;
+    var target = e.target || e.srcElement;
+    if (target.parentElement.className.indexOf("has-submenu") > -1) {
+      e.target.classList.toggle("open");
+    }
+    let setBranchOptions = this.props.getRMSData.reduce((acc, cur) => {
       if (cur.name === selectedItem) {
         return {
           ...acc,
@@ -32,52 +40,53 @@ class GroupedDropdown extends Component {
     });
   };
 
-  onHandleBranch = (selectedItem) => {
+  onHandleBranch = (e, selectedCategory) => {
     this.setState({
-      selectedBranch: selectedItem,
+      selectedBranch: selectedCategory.name,
     });
+    this.props.setSelectedCategory(selectedCategory.categories);
+    this.props.history.push(__catalog_path);
   };
 
+  onHoverDropDown = () => {};
+
   render() {
-    const data = DummyData.data.locations;
-    console.log(this.state);
     return (
       <div id="menu">
         <ul>
           <li>
-            <a class="prett" href="#" title="Menu">
+            <a
+              className="prett"
+              title="Menu"
+              onMouseOver={this.onHoverDropDown}
+            >
               Select Location
             </a>
-            <ul class="menus">
-              {data.map((location) => {
+            <ul className="menus">
+              {this.props.getRMSData.map((location) => {
                 return (
-                  <li class="has-submenu" key={location.name}>
+                  <li className="has-submenu" key={location.name}>
                     <a
-                      class="prett"
+                      className="prett"
                       title="Dropdown 1"
-                      onClick={() => this.onHandleLocation(location.name)}
+                      onClick={(e) => this.onHandleLocation(e, location.name)}
                     >
                       {location.name}
                     </a>
                     {location.branches && location.branches.length ? (
-                      <ul class="submenu">
-                        <li>
-                          <a title="Sub Menu">asas</a>
-                        </li>
-                        <li>
-                          <a title="Sub Menu">asas</a>
-                        </li>
-                        <li>
-                          <a title="Sub Menu">asas</a>
-                        </li>
-                        {/* {this.state.branchOptions.map((branch) => {
-                          debugger;
+                      <ul className="submenu">
+                        {this.state.branchOptions.map((branch) => {
                           return (
                             <li key={branch.name}>
-                              <a title="Sub Menu">{branch.name}</a>
+                              <a
+                                title="Sub Menu"
+                                onClick={(e) => this.onHandleBranch(e, branch)}
+                              >
+                                {branch.name}
+                              </a>
                             </li>
                           );
-                        })} */}
+                        })}
                       </ul>
                     ) : (
                       ""
@@ -93,4 +102,17 @@ class GroupedDropdown extends Component {
   }
 }
 
-export default GroupedDropdown;
+const mapStateToProps = (store) => {
+  return {
+    getRMSData: store.mainReducer.rmsData,
+  };
+};
+
+const mapActionsToProps = {
+  setSelectedCategory: Actions.setSelectedCategory,
+};
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withRouter(GroupedDropdown));

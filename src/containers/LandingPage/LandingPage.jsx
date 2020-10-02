@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-
+import "./Landing.css";
 class LandingPage extends Component {
   render() {
     return (
-      <div>WELCOME TO RENTAL MANAGEMENT SYSTEM Please select Location</div>
+      <div className="wrapper">
+        <div>WELCOME TO RENTAL MANAGEMENT SYSTEM</div>
+        <div>Please select Location</div>
+      </div>
     );
   }
 }

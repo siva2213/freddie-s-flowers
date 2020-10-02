@@ -9,20 +9,13 @@ import {
   __catalog_details_page,
 } from "../constants/pageNames";
 import Landing from "../containers/LandingPage/LandingPage";
-import Catalog from "../containers/Catalog/Catalog";
-import CatalogDetails from "../containers/CatalogDetails/CatalogDetails";
+import Catalog from "../containers/Categories/Categories";
+import CatalogDetails from "../containers/CategoriesDetails/CategoriesDetails";
 
 const routes = [
   {
     name: __landing_page,
     path: __landing_path,
-    strict: true,
-    exact: true,
-    component: Landing,
-  },
-  {
-    name: __landing_page,
-    path: "/",
     strict: true,
     exact: true,
     component: Landing,
