@@ -46,20 +46,21 @@ class GroupedDropdown extends Component {
     });
     this.props.setSelectedCategory(selectedCategory.categories);
     this.props.history.push(__catalog_path);
+    let classes = document.getElementsByClassName("has-submenu");
+    for (let i = 0; i < classes.length; i++) {
+      classes[i].classList.remove("a.prett.open");
+      classes[i].firstChild.className = "prett";
+      classes[i].firstElementChild.className = "prett";
+      classes.item(i).classList.add("a.prett");
+    }
   };
-
-  onHoverDropDown = () => {};
 
   render() {
     return (
       <div id="menu">
         <ul>
           <li>
-            <a
-              className="prett"
-              title="Menu"
-              onMouseOver={this.onHoverDropDown}
-            >
+            <a className="prett" title="Menu">
               Select Location
             </a>
             <ul className="menus">
