@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/freddie-s-flowers/static/css/main.6f137576.chunk.css",
+    "main.js": "/freddie-s-flowers/static/js/main.1a21f9bd.chunk.js",
+    "main.js.map": "/freddie-s-flowers/static/js/main.1a21f9bd.chunk.js.map",
+    "runtime-main.js": "/freddie-s-flowers/static/js/runtime-main.52360f83.js",
+    "runtime-main.js.map": "/freddie-s-flowers/static/js/runtime-main.52360f83.js.map",
+    "static/js/2.7e63cf24.chunk.js": "/freddie-s-flowers/static/js/2.7e63cf24.chunk.js",
+    "static/js/2.7e63cf24.chunk.js.map": "/freddie-s-flowers/static/js/2.7e63cf24.chunk.js.map",
+    "index.html": "/freddie-s-flowers/index.html",
+    "precache-manifest.06c8d53c41ce3ce5c32220e8552b6472.js": "/freddie-s-flowers/precache-manifest.06c8d53c41ce3ce5c32220e8552b6472.js",
+    "service-worker.js": "/freddie-s-flowers/service-worker.js",
+    "static/css/main.6f137576.chunk.css.map": "/freddie-s-flowers/static/css/main.6f137576.chunk.css.map",
+    "static/js/2.7e63cf24.chunk.js.LICENSE.txt": "/freddie-s-flowers/static/js/2.7e63cf24.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.52360f83.js",
+    "static/js/2.7e63cf24.chunk.js",
+    "static/css/main.6f137576.chunk.css",
+    "static/js/main.1a21f9bd.chunk.js"
+  ]
+}
