@@ -1,17 +1,4 @@
 #nav-menu {
   display: flex;
-  justify-content: space-between;
-  background: #343434;
-  color: white;
-}
-
-.nav-item:nth-child(1) {
-  flex: 70%;
-  line-height: 35px;
-  padding: 0.25rem 2rem;
-}
-.nav-item:nth-child(2) {
-  flex: 30%;
-  line-height: 35px;
-  padding: 0.25rem;
+  background: #f4f4f4;
 }

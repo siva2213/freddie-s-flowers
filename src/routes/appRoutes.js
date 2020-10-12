@@ -1,38 +1,56 @@
 import {
-  __landing_path,
-  __catalog_path,
-  __catalog_details_path,
-} from "../constants/routePaths";
-import {
-  __landing_page,
-  __catalog_page,
-  __catalog_details_page,
-} from "../constants/pageNames";
-import Landing from "../containers/LandingPage/LandingPage";
-import Catalog from "../containers/Categories/Categories";
-import CatalogDetails from "../containers/CategoriesDetails/CategoriesDetails";
+  __customer_form_page,
+  __customer_form_path,
+  __filter_images_page,
+  __filter_images_path,
+  __item_list_page,
+  __item_list_path,
+  __item_description_page,
+  __item_description_path,
+  __profile_page,
+  __profile_page_path,
+} from "../constants";
+import ItemList from "../containers/ItemList/ItemList";
+import ItemListDetails from "../containers/ItemListDetails/ItemListDetails";
+import Profile from "../containers/ProfilePage/ProfilePage";
+import ImageFilter from "../containers/SearchImage/SearchImage";
+import CustomerForm from "../containers/CustomerForm/CustomerForm";
 
 const routes = [
   {
-    name: __landing_page,
-    path: __landing_path,
+    name: __item_list_page,
+    path: __item_list_path,
     strict: true,
     exact: true,
-    component: Landing,
+    component: ItemList,
   },
   {
-    name: __catalog_page,
-    path: __catalog_path,
+    name: __item_description_page,
+    path: __item_description_path,
     strict: true,
     exact: true,
-    component: Catalog,
+    component: ItemListDetails,
   },
   {
-    name: __catalog_details_page,
-    path: __catalog_details_path,
+    name: __profile_page,
+    path: __profile_page_path,
     strict: true,
     exact: true,
-    component: CatalogDetails,
+    component: Profile,
+  },
+  {
+    name: __filter_images_page,
+    path: __filter_images_path,
+    strict: true,
+    exact: true,
+    component: ImageFilter,
+  },
+  {
+    name: __customer_form_page,
+    path: __customer_form_path,
+    strict: true,
+    exact: true,
+    component: CustomerForm,
   },
 ];
 

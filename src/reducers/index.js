@@ -1,22 +1,27 @@
 import DummyData from "../shared/data.json";
 
 const mainReducerDefaultState = {
-  rmsData: DummyData.data.locations,
-  categories: [],
-  subCategories: {},
+  itemList: DummyData.data.locations,
+  itemDescription: {},
+  customerInfo: {},
 };
 
 export default (state = mainReducerDefaultState, action) => {
   switch (action.type) {
-    case "SET_SELECTED_CATEGORY":
+    case "SET_ITEM_LIST":
       return {
         ...state,
-        categories: action.payload,
+        itemList: action.payload,
       };
-    case "SET_SELECTED_SUB_CATEGORY":
+    case "SET_SELECTED_ITEM":
       return {
         ...state,
-        subCategories: action.payload,
+        itemDescription: action.payload,
+      };
+    case "SET_CUSTOMER_INFO":
+      return {
+        ...state,
+        customerInfo: action.payload,
       };
     default:
       return state;

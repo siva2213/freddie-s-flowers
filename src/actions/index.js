@@ -1,16 +1,16 @@
 const Actions = {
-  setSelectedCategory: (payload) => {
+  setSelectedItem: (payload) => {
     return (dispatch) => {
       dispatch({
-        type: "SET_SELECTED_CATEGORY",
+        type: "SET_SELECTED_ITEM",
         payload,
       });
     };
   },
-  setSelectedSubCategory: (payload) => {
+  setCustomerInfo: (payload) => {
     return (dispatch) => {
       dispatch({
-        type: "SET_SELECTED_SUB_CATEGORY",
+        type: "SET_CUSTOMER_INFO",
         payload,
       });
     };

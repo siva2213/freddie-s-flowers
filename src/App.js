@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
+import { __item_list_path } from "./constants";
 import Header from "./components/Nav/Nav";
-import Footer from "./components/Footer/Footer";
 import appRoutes from "./routes/appRoutes";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.history.push(__item_list_path);
+  }
   render() {
     return (
       <div id="app-container">
@@ -21,10 +24,9 @@ class App extends Component {
             );
           })}
         </div>
-        <Footer />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

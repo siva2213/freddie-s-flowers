@@ -33,3 +33,15 @@
   color: #fff;
   padding: 0.38rem;
 }
+
+.item-desc {
+  padding: 1rem;
+  background-color: #eaeaea;
+  width: 30%;
+  box-shadow: 2px 3px #bfbebe;
+  height: 150px;
+  margin: auto;
+}
+.item-desc-inner {
+  padding: 5px;
+}
